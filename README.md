@@ -39,7 +39,7 @@ O exemplo a seguir define uma página que contém uma imagem seguida de um texto
 ```
 
 Resultado:
-<img src=”images/exemplo1.jpeg”>
+<img src=”./images/exemplo1.png”>
 Nesse exemplo:
 
 - **\<body\>**: Engloba todo o conteúdo apresentado;
