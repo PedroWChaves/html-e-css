@@ -1,5 +1,6 @@
 # Capacitação HTML e CSS
 
+Como a criação de uma página na web possui uma complexidade grande, é necessário fazer algum tipo de organização para o seu desenvolvimento. Diferentes ferramentas possuem diferentes maneiras de fazê-lo, o React, por exemplo, que veremos ao final das capacitações, separada diferentes "componentes" básicos de uma página para a sua composição. No entanto, usando as ferramentas "vanilla" HTML, CSS e JavaScript, essa organização é feita separando a funcionalidade de cada arquivo
 De maneira geral, uma página na web é composta por três elementos: HTML, CSS e JavaScript. Cada um possui uma funcionalidade específica e exclusiva:
 
 - HTML: responsável por definir a estrutura da página, ou seja, quais elementos ela possui;
@@ -148,3 +149,115 @@ São utilizados para definir títulos e subtitulos em uma página. Eles vão de 
 
 <img src="imagem.jpg" alt="Descrição da imagem" />
 ```
+
+# CONTINUAR DAQUI
+
+Uso de formulários para coletar dados dos usuários.
+Elementos de formulário, como campos de entrada de texto (<input>), caixas de seleção (<select>), botões (<button>), etc.
+Atributos de validação e controle de formulário.
+Estruturação de página:
+
+Uso de elementos semânticos, como <header>, <nav>, <main>, <section>, <article>, <aside>, <footer>, etc.
+Criação de menus de navegação.
+Manipulação de links e URLs:
+
+Uso de URLs absolutas e relativas.
+Links internos e externos.
+Uso de âncoras (<a>) para navegação interna.
+Meta informações:
+
+Inclusão de metatags para otimização de mecanismos de busca (SEO).
+Definição de metatags para a exibição de título, descrição e ícones da página.
+
+Esses são os conceitos básicos sobre HTML e alguns exemplos de uso das tags mencionadas. HTML oferece uma ampla variedade de tags e recursos para criar conteúdo e estruturar páginas web. É importante explorar e praticar para se familiarizar com as possibilidades que essa linguagem oferece.
+
+### Principais usos para React
+
+ESCREVER
+
+# CSS
+
+## Introdução
+
+Assim como HTML, CSS **não** se trata de uma linguagem de programação, mas sim de uma linguagem de estilização, ou uma Foha de Estilos em Cascata (**Cascading Style Sheets**). Isso significa que ele é responsável por definir a aparência e o layout de uma página da web, através de propriedades dos elementos HTML como cor, tamanho, fonte, margens, posicionamento, etc. O CSS é fundamental para o design e a apresentação visual de uma página web, permitindo criar layouts atraentes, coesos e responsivos.
+
+Um aspecto que pode ficar um pouco confuso com a nomenclatura é em relação à "cascata", mas isso simplesmente quer dizer que os estilos aplicados mais abaixo no arquivo terão prioridade para ser aplicados em relação aos de cima, caso seja a mesma propriedade a ser alterada.
+
+A sintaxe básica do CSS consiste em regras que são aplicadas a elementos HTML. Cada regra é composta por um seletor e um bloco de declarações. O seletor especifica quais elementos HTML devem ser estilizados, e as declarações definem as propriedades de estilo que serão aplicadas a esses elementos. O CSS pode ser adicionado a uma página HTML de diferentes maneiras, incluindo o uso de estilos internos no próprio documento HTML, estilos embutidos diretamente nos elementos HTML ou por meio de folhas de estilo externas.
+
+Os seletores CSS são usados para selecionar os elementos HTML aos quais se deseja aplicar estilos. Existem vários tipos de seletores:
+
+Seletores de elementos: selecionam elementos com base em seus nomes de tag. Por exemplo, o seletor "p" seleciona todos os parágrafos na página.
+
+Seletores de classes e IDs: permitem selecionar elementos com base em suas classes ou IDs atribuídos. Os seletores de classes começam com um ponto (.), seguido pelo nome da classe, enquanto os seletores de IDs começam com um hash (#), seguido pelo ID do elemento.
+
+Seletores de atributos: selecionam elementos com base em um atributo específico. Por exemplo, o seletor "[type='text']" seleciona todos os elementos com o atributo "type" igual a "text".
+
+Pseudo-classes: selecionam elementos em um estado específico ou em um contexto específico. Por exemplo, o seletor ":hover" seleciona um elemento quando o cursor do mouse está sobre ele.
+
+O CSS oferece uma ampla variedade de propriedades de estilo para controlar a aparência dos elementos HTML. Alguns exemplos incluem:
+
+Cores e fundos: é possível definir cores para texto e fundo usando valores hexadecimais, nomes de cores ou funções de gradiente. Também é possível usar imagens como fundo.
+
+Tipografia: permite controlar a fonte, tamanho, estilo (negrito, itálico), espaçamento entre linhas e outros aspectos relacionados ao texto.
+
+Margens, preenchimentos e bordas: são usadas para ajustar o espaçamento em torno dos elementos e definir estilos de borda.
+
+Posicionamento: o CSS permite posicionar elementos de forma estática (fluxo normal do documento), relativa (em relação à sua posição normal), absoluta (em relação ao elemento pai) e fixa (em relação à janela do navegador).
+
+Layouts: o CSS oferece recursos como Flexbox e Grid para criar layouts responsivos e controlar o posicionamento dos elementos em relação a seus contêineres.
+
+Animações e transições: é possível criar efeitos de animação e transição suaves em elementos, permitindo que eles mudem gradualmente de uma aparência para outra.
+
+O modelo de caixa é um conceito fundamental no CSS, que descreve como cada elemento é renderizado na página. Ele consiste em propriedades de dimensões (largura, altura), margens, preenchimentos e bordas, que afetam o espaço ocupado pelo elemento e sua aparência visual. O modelo de caixa pode ser ajustado usando a propriedade "box-sizing", que permite controlar se as dimensões incluem ou não as bordas e preenchimentos.
+
+A responsividade no CSS refere-se à capacidade de uma página se adaptar a diferentes dispositivos e tamanhos de tela. As media queries são usadas para aplicar estilos diferentes com base nas características do dispositivo, como largura de tela. As unidades de medida responsivas, como porcentagem e "em", permitem que os elementos sejam dimensionados de acordo com o tamanho do contêiner ou do dispositivo.
+
+O posicionamento e o layout no CSS são usados para controlar a posição e a disposição dos elementos na página. O posicionamento flutuante (float) permite que os elementos sejam deslocados para a esquerda ou direita de seu contêiner, enquanto o posicionamento flexível com flexbox oferece um modelo de layout mais poderoso e responsivo. O CSS Grid permite criar layouts de grade bidimensionais, facilitando a organização dos elementos em linhas e colunas.
+
+A estilização avançada no CSS envolve o uso de pseudo-elementos e pseudo-classes. Os pseudo-elementos são usados para adicionar estilos a partes específicas de um elemento, como o primeiro parágrafo de um texto. As pseudo-classes são usadas para selecionar elementos em estados específicos, como o estado "hover" de um link.
+
+Boas práticas de CSS incluem a organização de estilos em folhas de estilo externas, o uso de comentários e documentação para facilitar a manutenção do código, e a otimização de desempenho e carga de página, minimizando a quantidade de CSS e usando técnicas como a concatenação e minificação dos arquivos CSS.
+
+Introdução ao CSS:
+
+O que é CSS e sua importância no design e na apresentação de páginas web.
+Sintaxe básica do CSS e sua relação com o HTML.
+Seletores CSS:
+
+Seletores de elementos, classes e IDs.
+Seletores de atributos e pseudo-classes.
+Aninhamento de seletores.
+Propriedades de estilo:
+
+Cores e fundos: definição de cores, uso de gradientes, imagens de fundo, etc.
+Tipografia: controle de fontes, tamanhos, estilos, espaçamento entre linhas, etc.
+Margens, preenchimentos e bordas: ajuste de espaçamento e estilo.
+Posicionamento: posicionamento estático, relativo, absoluto e fixo.
+Layouts: uso de flexbox e grid para criar layouts responsivos.
+Animações e transições: criação de efeitos de animação e transição de elementos.
+Box model:
+
+Compreensão do conceito de modelo de caixa.
+Propriedades de dimensões (largura, altura, margens, preenchimentos, bordas).
+Ajuste do modelo de caixa usando box-sizing.
+Responsividade:
+
+Media queries: aplicação de estilos diferentes com base nas características do dispositivo.
+Unidades de medida responsivas: uso de unidades relativas, como porcentagem e em.
+Posicionamento e layout:
+
+Posicionamento flutuante (float) e clear.
+Posicionamento flexível com flexbox.
+Layout de grade com CSS Grid.
+Estilização avançada:
+
+Uso de pseudo-elementos e pseudo-classes.
+
+Estilização de formulários e elementos de interface.
+Estilização de links e elementos de navegação.
+Boas práticas:
+
+Organização de estilos com folhas de estilo externas (<link>).
+Comentários e documentação de código CSS.
+Otimização de desempenho e carga de página.
