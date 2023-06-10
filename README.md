@@ -26,7 +26,7 @@ O exemplo a seguir define uma página que contém uma imagem seguida de um texto
 
 ```html
 <body>
-  <img src="images/logo.png" alt="Logo Ex Machina" height="200"/>
+  <img src="images/logo.png" alt="Logo Ex Machina" height="200" />
 
   <div>
     <h1>Título do texto</h1>
@@ -37,8 +37,9 @@ O exemplo a seguir define uma página que contém uma imagem seguida de um texto
   </div>
 </body>
 ```
+
 Resultado:
-<img src=”./images/exemplo1.jpeg”>
+<img src=”images/exemplo1.jpeg”>
 Nesse exemplo:
 
 - **\<body\>**: Engloba todo o conteúdo apresentado;
