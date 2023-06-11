@@ -152,24 +152,24 @@ São utilizados para definir títulos e subtitulos em uma página. Eles vão de 
 
 # CONTINUAR DAQUI
 
-Uso de formulários para coletar dados dos usuários.
-Elementos de formulário, como campos de entrada de texto (<input>), caixas de seleção (<select>), botões (<button>), etc.
-Atributos de validação e controle de formulário.
-Estruturação de página:
+- Uso de formulários para coletar dados dos usuários.
+- Elementos de formulário, como campos de entrada de texto (<input>), caixas de seleção (<select>), botões (<button>), etc.
+- Atributos de validação e controle de formulário.
+- Estruturação de página:
 
-Uso de elementos semânticos, como <header>, <nav>, <main>, <section>, <article>, <aside>, <footer>, etc.
-Criação de menus de navegação.
-Manipulação de links e URLs:
+- Uso de elementos semânticos, como <header>, <nav>, <main>, <section>, <article>, <aside>, <footer>, etc.
+- Criação de menus de navegação.
+- Manipulação de links e URLs:
 
-Uso de URLs absolutas e relativas.
-Links internos e externos.
-Uso de âncoras (<a>) para navegação interna.
-Meta informações:
+- Uso de URLs absolutas e relativas.
+- Links internos e externos.
+- Uso de âncoras (<a>) para navegação interna.
+- Meta informações:
 
-Inclusão de metatags para otimização de mecanismos de busca (SEO).
-Definição de metatags para a exibição de título, descrição e ícones da página.
+- Inclusão de metatags para otimização de mecanismos de busca (SEO).
+- Definição de metatags para a exibição de título, descrição e ícones da página.
 
-Esses são os conceitos básicos sobre HTML e alguns exemplos de uso das tags mencionadas. HTML oferece uma ampla variedade de tags e recursos para criar conteúdo e estruturar páginas web. É importante explorar e praticar para se familiarizar com as possibilidades que essa linguagem oferece.
+- Esses são os conceitos básicos sobre HTML e alguns exemplos de uso das tags mencionadas. HTML oferece uma ampla variedade de tags e recursos para criar conteúdo e estruturar páginas web. É importante explorar e praticar para se familiarizar com as possibilidades que essa linguagem oferece.
 
 ### Principais usos para React
 
