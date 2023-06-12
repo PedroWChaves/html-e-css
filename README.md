@@ -142,13 +142,14 @@ São utilizados para definir títulos e subtitulos em uma página. Eles vão de 
 
 ### Inserção de links e imagens
 
-- **\<a\>**: Cria um link para outra página ou recurso. O atributo href define o destino do link.
+- **\<a\>**: Cria um link para outra página ou recurso. O atributo href define o destino do link. Podendo ser relativo ou absoluto.
 - **\<img\>**: Insere uma imagem na página. O atributo src especifica o caminho da imagem e o atributo alt fornece um texto alternativo para acessibilidade.
 
 ```html
-<a href="https://www.exemplo.com">Link para o site Exemplo</a>
+<a href="https://linktr.ee/ExMachina">Link absoluto</a>
+<a href="/sobre">Link relativo</a>
 
-<img src="imagem.jpg" alt="Descrição da imagem" />
+<img src="images/logo.png" alt="Logo Ex Machina" height="200" />
 ```
 
 ### Formulários
@@ -182,17 +183,51 @@ A forma mais comum de se obter informações dos usuários em uma página web é
 </form>
 ```
 
-- Uso de elementos semânticos, como \<header\>, \<nav\>, \<main\>, \<section\>, \<article\>, \<aside\>, \<footer\>, etc.
-- Criação de menus de navegação.
-- Manipulação de links e URLs:
+### Elementos de blocos e semânticos
 
-- Uso de URLs absolutas e relativas.
-- Links internos e externos.
-- Uso de âncoras (\<a\>) para navegação interna.
-- Meta informações:
+Nos exemplos anteriores foi apresentada a **\<div\>**, que simplesmente agrupava uma certa região do arquivo. Essa é de fato a sua funcionalidade e pode ser muito útil para separar uma parte lógica da página e definir uma estilização própria. De maneira semelhante, é possível utilizar a tag **\<span\>**, que, diferentemente da div, não cria automaticamente uma quebra de linha e, portanto usualmente agrupa uma área menor.
 
-- Inclusão de metatags para otimização de mecanismos de busca (SEO).
-- Definição de metatags para a exibição de título, descrição e ícones da página.
+O HTML também oferece outros elementos que **aparentam** ter a mesma funcionalidade da div ou do span, os denominados elementos semânticos. Eles também agrupam uma certa seção lógica da página, porém têm o benefício de dar um siginificado para essa seção, tornando a página mais acessível e permitindo que os mecanismos de busca identifiquem facilmente o título da página, o conteúdo principal e as seções secundárias.
+
+O uso adequado desses elementos semânticos não apenas melhora a estrutura e a legibilidade do código HTML, mas também tem um impacto positivo no SEO. Os mecanismos de busca, como o Google, levam em consideração a estrutura semântica ao indexar e classificar páginas, portanto fornecer estas pistas sobre a organização do conteúdo pode resultar em uma melhor classificação nos resultados de pesquisa relacionados.
+
+**OBS: SEO - Search Engine Optimization - é um conjunto de práticas para melhorar o "desempenho" do site, ou seja, fazer com que, ao pesquisar palavras-chaves relacionadas, o site apareça mais no topo da lista dos resultados.**
+
+- **\<header\>**: Define o cabeçalho da página ou de uma seção e normalmente contém elementos como o logotipo, o título da página e o menu de navegação.
+- **\<nav\>**: Define um menu de navegação e contém justamente os links que direcionam os usuários para diferentes seções ou páginas do site.
+- **\<main\>**: Define o conteúdo principal e significativo da página, excluindo cabeçalhos, rodapés, barras laterais, etc.
+- **\<section\>**: Define uma seção lógica da página. Cada seção pode ter seu próprio cabeçalho descritivo usando as tags **\<h1\>** a **\<h6\>**.
+- **\<article\>**: Define um conteúdo independente e autossuficiente, como um post de blog, uma notícia ou um artigo.
+- **\<aside\>**: Define um conteúdo ao lado seção principal, como um menu, por exemplo.
+- **\<footer\>**: Define o rodapé da página, que pode conter elementos como direitos da empresa e links para seção de FAQ e de contato.
+
+```html
+<header>
+  <h1>Meu Site</h1>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/sobre">Sobre</a></li>
+      <li><a href="/contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section>
+    <h2>Título da Seção</h2>
+    <p>Conteúdo da seção.</p>
+  </section>
+  <aside>
+    <h3>Barra Lateral</h3>
+    <p>Conteúdo relacionado.</p>
+  </aside>
+</main>
+<footer>
+  <p>© 2023 Meu Site. Todos os direitos reservados.</p>
+</footer>
+```
+
+Ao rodar o exemplo apresentado, pode-se perceber que os elementos não ficam nos lugares que deveriam, de acordo com o que foi visto. Isso ocorre pois, mesmo com esses elementos semaânticos, o HTML define somente a estrutura e o contúdo. O posicionamento, espaçamento e tamanho devem ser definidos no CSS.
 
 - Esses são os conceitos básicos sobre HTML e alguns exemplos de uso das tags mencionadas. HTML oferece uma ampla variedade de tags e recursos para criar conteúdo e estruturar páginas web. É importante explorar e praticar para se familiarizar com as possibilidades que essa linguagem oferece.
 
