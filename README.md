@@ -40,14 +40,14 @@ O exemplo a seguir define uma página que contém uma imagem seguida de um texto
 </body>
 ```
 
-Resultado:
-<img src=”./images/exemplo1.png”>
 Nesse exemplo:
 
 - **\<body\>**: Engloba todo o conteúdo apresentado;
 - **\<img\>**: define uma imagem e é um exemplo de tag que possui atributos;
 - **\<div\>**: representa a seção da página definida pelo texto e é um exemplo de tag que contém outras tags;
 - **\<br\>**: representa uma quebra de linha no texto e é um exemplo de tag sem fechamento.
+
+**OBS: Todas tags HTML podem receber o atributo `id`, que é muito utilizado para a integração com JavaScript e CSS.**
 
 Todo documento HTML possui a seguinte estrutura básica de tags:
 
@@ -56,6 +56,9 @@ Todo documento HTML possui a seguinte estrutura básica de tags:
 <html>
   <head>
     <title>Título da Página</title>
+    <meta name="description" content="Descrição da página" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <!-- ícone da página -->
   </head>
   <body>
     Conteúdo da Página
@@ -193,7 +196,7 @@ O uso adequado desses elementos semânticos não apenas melhora a estrutura e a 
 
 **OBS: SEO - Search Engine Optimization - é um conjunto de práticas para melhorar o "desempenho" do site, ou seja, fazer com que, ao pesquisar palavras-chaves relacionadas, o site apareça mais no topo da lista dos resultados.**
 
-- **\<header\>**: Define o cabeçalho da página ou de uma seção e normalmente contém elementos como o logotipo, o título da página e o menu de navegação.
+- **\<header\>**: Define o cabeçalho da página ou de uma seção e normalmente contém elementos como o logotipo, o título da página e o menu de navegação. **Não confundir com head!**
 - **\<nav\>**: Define um menu de navegação e contém justamente os links que direcionam os usuários para diferentes seções ou páginas do site.
 - **\<main\>**: Define o conteúdo principal e significativo da página, excluindo cabeçalhos, rodapés, barras laterais, etc.
 - **\<section\>**: Define uma seção lógica da página. Cada seção pode ter seu próprio cabeçalho descritivo usando as tags **\<h1\>** a **\<h6\>**.
@@ -229,9 +232,19 @@ O uso adequado desses elementos semânticos não apenas melhora a estrutura e a 
 
 Ao rodar o exemplo apresentado, pode-se perceber que os elementos não ficam nos lugares que deveriam, de acordo com o que foi visto. Isso ocorre pois, mesmo com esses elementos semaânticos, o HTML define somente a estrutura e o contúdo. O posicionamento, espaçamento e tamanho devem ser definidos no CSS.
 
-- Esses são os conceitos básicos sobre HTML e alguns exemplos de uso das tags mencionadas. HTML oferece uma ampla variedade de tags e recursos para criar conteúdo e estruturar páginas web. É importante explorar e praticar para se familiarizar com as possibilidades que essa linguagem oferece.
+## Principais usos para React
 
-### Principais usos para React
+Para o desenvolvimento de aplicações web com React, o atual foco do projeto, parte do HTML passa a ser abstraindo ou simplesmente não muito utilizado. Sempre é importante entender a base do desenvolvimento web, no entanto, não é necessário sentir sobrecarregado caso seja muito conteúdo. Tendo isso em vista, alguns tópicos merecem uma atenção especial, pois sempre aparecem quando desenvolvendo em React:
+
+- Parâmetros para tags;
+- Cabeçalhos;
+- Listas;
+- Links e imagens;
+- Formulários.
+
+## Conclusão
+
+Esses são os conceitos básicos sobre HTML e alguns exemplos das tags mais comumente utilizadas. É importante testar e modificar os exemplos apresentados para uma maior compreensão, assim como conferir a playlist montada, ao final deste arquivo.
 
 # CSS
 
@@ -336,3 +349,7 @@ Boas práticas:
 Organização de estilos com folhas de estilo externas (<link>).
 Comentários e documentação de código CSS.
 Otimização de desempenho e carga de página.
+
+# Materiais para consulta
+
+- [Playlist HTML e CSS](https://www.youtube.com/playlist?list=PLPjSrtKJfMyfSH55NTT5RdHTeQqBr4wIM)
