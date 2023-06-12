@@ -13,7 +13,7 @@ Vale notar que dos três elementos citados, apenas o JavaScript é uma linguagem
 
 ## Introdução
 
-Como dito anteriormente, HTML **não** se trata de uma linguagem de programação propriamente dita, mas sim de uma Linguagem de Marcação de HiperTexto (**HyperText Markup Language**). Isso significa que ele é responsável por descrever a estrutura de elementos e conteúdos de uma página, como títulos, parágrafos, imagens, links, etc. O HTML desempenha um papel fundamental, sendo a base para a criação de páginas da web, pois permite aos desenvolvedores estruturar e organizar o conteúdo de forma significativa, além de facilitar a acessibilidade e indexação pelos mecanismos de busca.
+Como dito anteriormente, HTML **não** se trata de uma linguagem de programação propriamente dita, mas sim de uma Linguagem de Marcação de HiperTexto (**HyperText Markup Language**). Isso significa que ele é responsável por descrever a estrutura de elementos e conteúdos de uma página, como títulos, parágrafos, imagens, links, etc. O HTML desempenha um papel fundamental, sendo a base para a criação de páginas da web, pois permite aos desenvolvedores estruturar e organizar o conteúdo de forma significativa, além de facilitar a acessibilidade e indexação pelos mecanismos de busca através dos metadados da página como título, descrição, ícone, etc.
 
 ## Estrutura Básica
 
@@ -26,6 +26,7 @@ A definição de elementos básicos de uma página através do HTML é feita atr
 O exemplo a seguir define uma página que contém uma imagem seguida de um texto - constituído por um título e dois parágrafos:
 
 ```html
+<!-- Exemplo 1 -->
 <body>
   <img src="images/logo.png" alt="Logo Ex Machina" height="200" />
 
@@ -150,10 +151,36 @@ São utilizados para definir títulos e subtitulos em uma página. Eles vão de 
 <img src="imagem.jpg" alt="Descrição da imagem" />
 ```
 
-- Uso de formulários para coletar dados dos usuários
-- Elementos de formulário, como campos de entrada de texto (\<input\>), caixas de seleção (\<select\>), botões (\<button\>), etc
-- Atributos de validação e controle de formulário
-- Estruturação de página
+### Formulários
+
+A forma mais comum de se obter informações dos usuários em uma página web é utilizando formulários, portanto é sempre importante saber como utilizá-los e otimizá-los.
+
+- **\<form\>**: Define que o conteúdo contido se trata de um formulário.
+- **\<label\>**: Define uma legenda para um item. Não é específico para formulários, mas comumente associado, pois permite definir de maneira acessível a qual atributo se refere um determinado input.
+- **\<input\>**: Cria um campo de entrada de texto, onde os usuários podem digitar informações. O atributo type especifica o tipo de entrada desejado, como texto, email, número, etc.
+- **\<button\>**: Cria um botão, como esperado. Em formulários é possível definir o atributo `type="submit"` para que, ao clicar no botão, o formulário seja enviado/validado.
+- **\<select\>**: Cria uma caixa de seleção com opções pré-definidas pelo desenvolvedor.
+- **\<option\>**: Cria as opções para a tag select.
+
+```html
+<form>
+  <label>Nome:</label>
+  <input type="text" name="nome" />
+
+  <!-- Outra maneira de definir qual informação deve ser inserida -->
+  <input type="number" name="idade" placeholder="Digite sua idade" />
+
+  <label>Estado:</label>
+  <select name="estado">
+    <option value="MG">Minas Gerais</option>
+    <option value="RJ">Rio de Janeiro</option>
+    <option value="SP">São Paulo</option>
+    <option value="ES">Espírito Santo</option>
+  </select>
+
+  <button type="submit">Enviar</button>
+</form>
+```
 
 - Uso de elementos semânticos, como \<header\>, \<nav\>, \<main\>, \<section\>, \<article\>, \<aside\>, \<footer\>, etc.
 - Criação de menus de navegação.
@@ -179,7 +206,24 @@ Assim como HTML, CSS **não** se trata de uma linguagem de programação, mas si
 
 Um aspecto que pode ficar um pouco confuso com a nomenclatura é em relação à "cascata", mas isso simplesmente quer dizer que os estilos aplicados mais abaixo no arquivo terão prioridade para ser aplicados em relação aos de cima, caso seja a mesma propriedade a ser alterada.
 
-A sintaxe básica do CSS consiste em regras que são aplicadas a elementos HTML. Cada regra é composta por um seletor e um bloco de declarações. O seletor especifica quais elementos HTML devem ser estilizados, e as declarações definem as propriedades de estilo que serão aplicadas a esses elementos. O CSS pode ser adicionado a uma página HTML de diferentes maneiras, incluindo o uso de estilos internos no próprio documento HTML, estilos embutidos diretamente nos elementos HTML ou por meio de folhas de estilo externas.
+## Utilização básica
+
+Um arquivo CSS se consiste em blocos de estilizações, compostos por um seletor e declarações de estilo. O seletor especifica qual (ou quais) elementos HTML serão estilizados, enquanto que as declarações definem qual será essa estilização, através de propriedades. Por exemplo:
+
+Imagine que se deseja criar uma lista de cards para apresentar os diferentes projetos de extensão da UNIFEI. Para isso o seguinte bloco em HTML pode ser utilizado:
+
+```html
+<div>
+  <img src="images/logo.png" alt="Logo Ex Machina" height="200" />
+
+  <div>
+    <h1>Ex Machina</h1>
+    <p>Projeto de desenvolvimento de tecnologia assistiva</p>
+  </div>
+</div>
+```
+
+O CSS pode ser adicionado a uma página HTML de diferentes maneiras, incluindo o uso de estilos internos no próprio documento HTML, estilos embutidos diretamente nos elementos HTML ou por meio de folhas de estilo externas.
 
 Os seletores CSS são usados para selecionar os elementos HTML aos quais se deseja aplicar estilos. Existem vários tipos de seletores:
 
