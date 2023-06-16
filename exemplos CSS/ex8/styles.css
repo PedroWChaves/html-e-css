@@ -1,0 +1,6 @@
+div {
+  background-image: url("../../images/img_example.jpg");
+  background-color: #222;
+  display: flex;
+  justify-content: center;
+}

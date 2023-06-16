@@ -1,0 +1,39 @@
+body {
+  margin: 0px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  background: #def;
+}
+
+section :first-child {
+  background: #ff9933;
+}
+
+div {
+  height: 100px;
+  width: 100px;
+  background: #3399ff;
+  border-radius: 25px;
+}
+
+.item1:hover {
+  background: #99ff33;
+}
+
+#item2:hover {
+  background: #ffee55;
+}
+
+#item2:active {
+  background: #ff9933;
+}
+
+section input:focus {
+  color: #3399ff;
+}

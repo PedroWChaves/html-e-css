@@ -1,0 +1,27 @@
+body {
+  margin: 0px;
+}
+
+div {
+  height: 100px;
+  width: 100px;
+  background: #3399ff;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: #def;
+}
+
+.ball {
+  border-radius: 50px;
+}
+
+.rounded {
+  border-radius: 25px;
+}

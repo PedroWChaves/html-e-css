@@ -428,6 +428,193 @@ div p {
 
 Ao colocar seletores de elemento aninhados, o CSS irá aplicar o estilo somente no último seletor que esteja dentro dos seletores especificados anteriormente. Note que apenas o parágrafo de dentro foi alterado para branco, enquanto que o de fora continuou preto.
 
+### Pseudo-classes
+
+Também é possível selecionar elementos em estados específicos, utilizando ":" entre o elemento e o estado desejados.
+
+- **:hover** - quando o cursor do mouse está sobre o elemento
+- **:active** - quando o elemento está sendo clicado ou pressionado
+- **:focus** - quando está em foco
+- **:first-child** - seleciona o primeiro elemento filho de um elemento pai
+
+```html
+<section>
+  <div></div>
+  <div></div>
+  <div class="item1"></div>
+  <button id="item2">Enviar</button>
+  <input class="input" type="text" />
+</section>
+```
+
+```css
+body {
+  margin: 0px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  background: #def;
+}
+
+section :first-child {
+  background: #ff9933;
+}
+
+div {
+  height: 100px;
+  width: 100px;
+  background: #3399ff;
+  border-radius: 25px;
+}
+
+.item1:hover {
+  background: #99ff33;
+}
+
+#item2:hover {
+  background: #ffee55;
+}
+
+#item2:active {
+  background: #ff9933;
+}
+
+section input:focus {
+  color: #3399ff;
+}
+```
+
+Isso conclui a utilização básica e mais cotidiana sobre seletores. Existem alguns outros pontos como seletores de atributos e pseudo-elementos, porém não precisam ser estudados nesse primeiro momento.
+
+## Estilizações
+
+Agora, com o conhecimento sobre seletores, é possível estudar o ponto principal do CSS, que são as estilizações propriamente ditas. Como dito anteriormente, nos exemplos foram apresentadas algumas propriedades autoexplicativas e outras um pouco mais complicadas, porém todas as mais importantes serão analisadas nas seções a seguir.
+
+### Cores e imagens
+
+As cores em CSS podem ser definidas de maneiras diferentes, conforme a conveniência do desenvolvedor.
+
+- RGB - red, green, blue: cada valor varia de 0 a 255
+- RGBA - red, green, blue, alpha: cada valor varia de 0 a 255 e o alpha (opacidade) de 0 a 1
+- Hexadecimal - RGB em base hexadecimal: cada valor varia de 00 a ff
+- HSL - hue, saturation, lightness:
+  hue define qual a cor no círculo cromático (0 a 360);
+  saturation define a saturação da cor (0 a 100%);
+  lightness define a claridade da cor (0 a 100%);
+- HSLA - hue, saturation, lightness, alpha
+
+```html
+<div id="container">
+  <div class="rgb"></div>
+  <div class="rgba"></div>
+  <div class="hex"></div>
+  <div class="hex-short"></div>
+  <div class="hsl"></div>
+  <div class="hsla"></div>
+  <div></div>
+</div>
+```
+
+```css
+body {
+  margin: 0px;
+}
+
+div {
+  height: 100px;
+  width: 100px;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: #def;
+}
+
+.rgb {
+  background: rgb(200, 10, 95);
+}
+
+.rgba {
+  background: rgba(200, 10, 95, 0.5);
+}
+
+.hex {
+  background: #3399ff;
+}
+
+.hex-short {
+  background: #39f;
+}
+
+.hsl {
+  background: hsl(120, 80%, 50%);
+}
+
+.hsla {
+  background: hsla(120, 80%, 50%, 0.5);
+}
+```
+
+Além da propriedade `background` ou `background-color` existem algumas outras que utilizam cor:
+
+- color: altera a cor do texto
+- border-color: altera a cor da borda
+- accent-color: altera a cor de um elemento selecionado, como checkbox ou radio button
+- outline-color: altera a cor fora da borda
+
+O CSS também facilita o processo de trabalhar com imagens, oferecedno algumas opções.
+
+```html
+<img src="../../images/img_example.jpg" alt="fundo com casas" />
+```
+
+```css
+img {
+  max-width: 100%;
+  height: auto;
+}
+```
+
+Esse exemplo simples faz com que a imagem de torne responsiva, ou seja, mude de tamanho conforme o tamanho do navegador até que atinja seu tamanho máximo em contraste com o padrão, que simplesmente corta a imagem.
+
+```css
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+```
+
+Utilizando a estilização apresentada acima para a mesma imagem, pode-se perceber que ela apresenta um comportamento parecido, no entanto também oferece a possibilidade de diminuir ou esticar a imagem, sempre deixando-a no centro. Caso precise manter o tamanho original da imagem basta trocar a propriedade `width` por `max-width`, como no exemplo anterior.
+
+```html
+<div>
+  <h1>Tem uma imagem aqui atrás</h1>
+</div>
+```
+
+```css
+div {
+  background-image: url("../../images/img_example.jpg");
+  background-color: #222;
+  display: flex;
+  justify-content: center;
+}
+```
+
+Esse exemplo apresenta uma das forma de definir uma imagem como fundo de uma div. É importante lembrar de definir uma cor de fundo para caso a imagem não carregue.
+
 # Materiais para estudo
 
 - **[Playlist HTML e CSS](https://www.youtube.com/playlist?list=PLPjSrtKJfMyfSH55NTT5RdHTeQqBr4wIM)**

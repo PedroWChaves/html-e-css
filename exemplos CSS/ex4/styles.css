@@ -1,0 +1,8 @@
+div {
+  background: #123;
+}
+
+div p {
+  color: white;
+  padding: 10px;
+}

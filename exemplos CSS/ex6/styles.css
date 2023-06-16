@@ -1,0 +1,42 @@
+body {
+  margin: 0px;
+}
+
+div {
+  height: 100px;
+  width: 100px;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: #def;
+}
+
+.rgb {
+  background: rgb(200, 10, 95);
+}
+
+.rgba {
+  background: rgba(200, 10, 95, 0.5);
+}
+
+.hex {
+  background: #3399ff;
+}
+
+.hex-short {
+  background: #39f;
+}
+
+.hsl {
+  background: hsl(120, 80%, 50%);
+}
+
+.hsla {
+  background: hsla(120, 80%, 50%, 0.5);
+}
