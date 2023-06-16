@@ -309,7 +309,124 @@ No entanto, deixar HTML e CSS no mesmo arquivo não é uma prática boa, então 
 <link rel="stylesheet" type="text/css" href="styles.css" />
 ```
 
-Daqui em diante será utilizada essa separação.
+## Seletores
+
+O exemplo anterior apresenta algumas propriedades autoexplicativas, como font-size, width ou height, no entanto, algumas propriedades são um pouco mais confusas ao primeiro momento como display, flex-diretcion ou justify-content. Essas propriedades terão um tópico dedicado para elas, entretanto primeiro é necessário aprender sobre os seletores.
+
+### Seletores de elemento
+
+A maneira mais simples de aplicar um estilo a um determinado elemento da página é através do seletor de elemento, que foi utilizado no exemplo anterior. Para utilizá-lo basta declarar qual/quais tags HTML deseja que se aplique determinada estilização.
+
+```css
+h1,
+h2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #3399ff;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: normal;
+  color: rgb(255, 0, 100);
+}
+```
+
+Ao colocar dois elementos separados por vírgula no primeiro bloco, o estilo é aplicado em todos. Em seguida o parâmetro "font-size" é sobreescrito em h2 - lembrando que a prioridade se deve pois 24px aparece abaixo no arquivo, caso aparecesse acima, 36px teria prioridade. Por fim, um terceiro estilo é aplicado para h3. Podemos analisar as estilizações com o seguinte trecho em HTML:
+
+```html
+<h1>Texto em h1</h1>
+<h1>Outro texto em h1</h1>
+<h2>Texto em h2</h2>
+<h3>Texto em h3</h3>
+```
+
+É possível notar que a estilização acontece para todas ocorrências da tag estilizada.
+
+### Seletores de classes e de IDs
+
+Ao utilizar seletores de elemento, logo surge um problema: como estilizar dois elementos de mesma tag de maneiras distintas? A resposta são os seletores de classes e de IDs, que, no geral, são mais utilizados, pois permitem selecionar apenas os elementos desejados, definidos no arquivo HTML.
+
+Os parâmetros class e id:
+Durante a capacitação de HTML foi mencionado a existência do parâmentro id. Sua função, no contexto do CSS, é justamente distinguir **um** elemento específico dos demais, para que possa ter uma estilização própria. O parâmetro class funciona de maneira semelhante, no entanto, diferentemente do id, pode ser atribuído a mais de um elemento.
+
+```html
+<div id="container">
+  <div></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div></div>
+  <div class="rounded"></div>
+</div>
+```
+
+Os seletores de classe se consistem em um ponto (.) e nome da classe, enquanto os seletores de IDs se consistem em um hashtag (#), seguido pelo id:
+
+```css
+body {
+  margin: 0px;
+}
+
+div {
+  height: 100px;
+  width: 100px;
+  background: #3399ff;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: #def;
+}
+
+.ball {
+  border-radius: 50px;
+}
+
+.rounded {
+  border-radius: 25px;
+}
+```
+
+No exemplo dado, é possível perceber que o id foi aplicado somente em um elemento, equanto que a class foi aplicada em um e em dois elementos, não havendo essa restrição de quantidade. Além de que, mesmo possuindo seletores diferentes, todas divs possuem a estilização do seletor de elemento.
+
+### Aninhamento de seletores
+
+Uma outra maneira de se especificar qual elemento deseja ser estilizado é através do aninhamento de seletores.
+
+```html
+<h1>Título</h1>
+<p>
+  Parágrafo de fora. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+</p>
+<div>
+  <p>
+    Parágrafo de dentro. Lorem ipsum dolor sit amet consectetur adipisicing
+    elit.
+  </p>
+</div>
+```
+
+```css
+div {
+  background: #123;
+}
+
+div p {
+  color: white;
+  padding: 10px;
+}
+```
+
+Ao colocar seletores de elemento aninhados, o CSS irá aplicar o estilo somente no último seletor que esteja dentro dos seletores especificados anteriormente. Note que apenas o parágrafo de dentro foi alterado para branco, enquanto que o de fora continuou preto.
 
 # Materiais para estudo
 
