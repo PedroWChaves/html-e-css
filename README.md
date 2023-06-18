@@ -631,6 +631,7 @@ Esse exemplo apresenta uma das forma de definir uma imagem como fundo de uma div
 - text-shadow: cria uma sombra para o texto
 - font-weight: define o peso da fonte. Pode ser por extenso 'bold', 'normal' ou por numeração 100, 200, ..., 900
 - font-family: define a fonte propriamente dita para o texto
+- font-style - italic, normal: define se o texto será em itálico ou não
 
 ```html
 <body>
@@ -676,6 +677,7 @@ h2 {
   text-align: right;
   font-weight: bold;
   font-family: sans-serif;
+  font-style: italic;
 }
 
 .text4 {
