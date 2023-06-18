@@ -303,7 +303,7 @@ Imagine que se deseja criar uma lista de cards para apresentar os diferentes pro
 </html>
 ```
 
-No entanto, deixar HTML e CSS no mesmo arquivo não é uma prática boa, então podemos criar um arquivo `styles.css` com os estilos desenvolvidos no mesmo diretório substituir a tag **\<style\>** por:
+No entanto, deixar HTML e CSS no mesmo arquivo não é uma boa prática, então podemos criar um arquivo `styles.css` com os estilos desenvolvidos no mesmo diretório substituir a tag **\<style\>** por:
 
 ```html
 <link rel="stylesheet" type="text/css" href="styles.css" />
@@ -499,6 +499,7 @@ Agora, com o conhecimento sobre seletores, é possível estudar o ponto principa
 
 As cores em CSS podem ser definidas de maneiras diferentes, conforme a conveniência do desenvolvedor.
 
+- Nome: existe uma [lista de nomes de cores](https://www.w3.org/wiki/CSS/Properties/color/keywords) para utilizar no CSS
 - RGB - red, green, blue: cada valor varia de 0 a 255
 - RGBA - red, green, blue, alpha: cada valor varia de 0 a 255 e o alpha (opacidade) de 0 a 1
 - Hexadecimal - RGB em base hexadecimal: cada valor varia de 00 a ff
@@ -510,6 +511,7 @@ As cores em CSS podem ser definidas de maneiras diferentes, conforme a conveniê
 
 ```html
 <div id="container">
+  <div class="name"></div>
   <div class="rgb"></div>
   <div class="rgba"></div>
   <div class="hex"></div>
@@ -537,7 +539,11 @@ div {
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background: #def;
+  background: #ccc;
+}
+
+.name {
+  background: aliceblue;
 }
 
 .rgb {
@@ -615,10 +621,88 @@ div {
 
 Esse exemplo apresenta uma das forma de definir uma imagem como fundo de uma div. É importante lembrar de definir uma cor de fundo para caso a imagem não carregue.
 
+### Texto e fontes
+
+- color: altera a cor do texto
+- background-color: altera a cor do fundo do texto
+- text-align - left, center, right, justify: define o alinhamento do texto
+- text-decoration - overline, line-through, underline: define uma linha de decoração para o texto
+- text-indent: define o tamanaho do espaçamento do parágrafo do texto
+- text-shadow: cria uma sombra para o texto
+- font-weight: define o peso da fonte. Pode ser por extenso 'bold', 'normal' ou por numeração 100, 200, ..., 900
+- font-family: define a fonte propriamente dita para o texto
+
+```html
+<body>
+  <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
+  <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
+  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam id aliquam quasi esse debitis, assumenda aspernatur dignissimos, adipisci obcaecati maiores, vel non voluptatem repudiandae iusto ipsa tempore. Ab, facere atque.</p>
+  <p class="text1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam id aliquam quasi esse debitis, assumenda aspernatur dignissimos, adipisci obcaecati maiores, vel non voluptatem repudiandae iusto ipsa tempore. Ab, facere atque.</p>
+  <p class="text2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam id aliquam quasi esse debitis, assumenda aspernatur dignissimos, adipisci obcaecati maiores, vel non voluptatem repudiandae iusto ipsa tempore. Ab, facere atque.</p>
+  <p class="text3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam id aliquam quasi esse debitis, assumenda aspernatur dignissimos, adipisci obcaecati maiores, vel non voluptatem repudiandae iusto ipsa tempore. Ab, facere atque.</p>
+  <p class="text4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam id aliquam quasi esse debitis, assumenda aspernatur dignissimos, adipisci obcaecati maiores, vel non voluptatem repudiandae iusto ipsa tempore. Ab, facere atque.</p>
+  <p class="text5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam id aliquam quasi esse debitis, assumenda aspernatur dignissimos, adipisci obcaecati maiores, vel non voluptatem repudiandae iusto ipsa tempore. Ab, facere atque.</p>
+</body>
+```
+
+```css
+body {
+  width: 50%;
+}
+
+h1 {
+  color: tomato;
+  background-color: black;
+  text-decoration: line-through;
+}
+
+h2 {
+  text-decoration: overline underline;
+}
+
+.text1 {
+  text-align: center;
+  text-shadow: 2px 2px blue;
+}
+
+.text2 {
+  text-align: justify;
+  text-indent: 30px;
+  text-shadow: 2px 2px 5px blue;
+  font-family: courier new;
+}
+
+.text3 {
+  text-align: right;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.text4 {
+  text-indent: 30px;
+  font-family: helvetica;
+}
+
+.text5 {
+  font-family: Roboto;
+}
+```
+
+O exemplo acima demonstra algumas propriedades de texto, que quando combinadas de forma mais lógica podem melhorar muito o design de uma página. O último parágrafo merece uma atenção especial, pois se trata de uma fonte que não vem por padrão nos navegadores, mas sim de uma fonte do Google (Google Fonts). Para utilizá-la basta adicionar a seguinte linha de código dentro da tag head do arquivo HTML e antes da adição do arquivo CSS:
+
+```html
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
+```
+
+Isso fará com que a fonte seja carregada e possa ser utilizada na aplicação. Para utilizar alguma outra fonte do Google, basta trocar o parâmetro family na url acima. A seção de materias para estudo, ao final do arquivo, contém um link para uma lista das fontes disponíveis.
+
 # Materiais para estudo
 
 - **[Playlist HTML e CSS](https://www.youtube.com/playlist?list=PLPjSrtKJfMyfSH55NTT5RdHTeQqBr4wIM)**
 - [Curso da Alura](https://cursos.alura.com.br/formacao-html-css-v534235)
 - [Curso da Udemy](https://www.udemy.com/course/curso-web/learn/lecture/9646336#overview)
+- [W3 Schools CSS](https://www.w3schools.com/css/css_intro.asp)
 - [Joguinho do sapo](https://flexboxfroggy.com/)
 - [CSS animado](https://dev.to/jon_snow789/an-animated-lesson-on-css-will-teach-you-how-to-use-it-2dj4)
+- [Nomes de cores](https://www.w3.org/wiki/CSS/Properties/color/keywords)
+- [Google Fonts](https://fonts.google.com/)

@@ -14,7 +14,11 @@ div {
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background: #def;
+  background: #ccc;
+}
+
+.name {
+  background: aliceblue;
 }
 
 .rgb {

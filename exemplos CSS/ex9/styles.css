@@ -1,0 +1,41 @@
+body {
+  width: 50%;
+}
+
+h1 {
+  color: tomato;
+  background-color: black;
+  text-decoration: line-through;
+}
+
+h2 {
+  text-decoration: overline underline;
+}
+
+.text1 {
+  text-align: center;
+  text-shadow: 2px 2px blue;
+}
+
+.text2 {
+  text-align: justify;
+  text-indent: 30px;
+  text-shadow: 2px 2px 5px blue;
+  font-family: courier new;
+}
+
+.text3 {
+  text-align: right;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-style: italic;
+}
+
+.text4 {
+  text-indent: 30px;
+  font-family: helvetica;
+}
+
+.text5 {
+  font-family: Sofia;
+}
