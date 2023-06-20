@@ -894,6 +894,8 @@ Nos exemplos, foi utilizado apenas a unidade "px" - e em alguns casos % e vh - p
   - pt (points), pc (paica): Unidades de medida de texto
   - in (inches), cm (centímetros), mm (milímetros) : Unidades de medida do "mundo real"
 
+  OBS: 1 in = 2,54cm = 25,4mm = 72pt = 6pc
+
 - Medidas relativas:
 
   São medidas que mudarão de tamanho conforme uma referência adotada. Ex:
@@ -903,6 +905,91 @@ Nos exemplos, foi utilizado apenas a unidade "px" - e em alguns casos % e vh - p
   - vw (viewport width), vh (viewport height): 1/100 da largura e altura, respectivamente, do dispositivo
 
   A partir dessas medidas relativas, é possível inciar o conceito de responsividade: a capacidade de uma página se adaptar a diferentes dispositivos e tamanhos de tela. Ao utilizá-las, uma medida sempre manterá a mesma proporção em diferentes tamanhos de dispositivos, fazendo com o que o site se torne de certa forma mais acessível. Isso é, se os dispositivos não tiverem uma diferença muito grande de tamanho, para esse caso é necessário utilizar media queries, que não convêm serem explicadas por agora.
+
+```html
+<section id="container">
+  <div class="item1">
+    <h1>título</h1>
+    <p>conteúdo</p>
+  </div>
+  <div class="item2">
+    Texto do item 2
+    <div></div>
+  </div>
+</section>
+```
+
+```css
+body {
+  margin: 0px;
+  background: #def;
+}
+
+div {
+  background: #3399ff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.item1 {
+  padding: 10px;
+  border-radius: 25px;
+  height: 5cm;
+  width: 50mm;
+}
+
+.item1 h1 {
+  font-size: 24pt;
+  margin: 0px;
+}
+
+.item1 p {
+  font-size: 1.5pc;
+}
+
+.item2 {
+  height: 30vh;
+  width: 40vw;
+  font-size: 24pt;
+}
+
+.item2 div {
+  height: 5em;
+  width: 10em;
+  background: #ff9933;
+}
+```
+
+Para analisar esse exemplo, abra novamente o Menu do Desenvolvedor com a tecla F12, procure pela opção "emulação de dispositivo" e mexa com o tamanho da tela. Veja como o item 1 mantém seu tamaho constante, enquanto que o item 2 se ajusta conforme o tamanho é alterado. Altere também o tamanho do `font-size` no item 2 e veja os impactos na div laranja em seu interior.
+
+Também é possível definir tamanhos mínimos e máximos fixos, para limitar a expansão ou encolhimento de um elemento através das propriedades:
+
+- min-height
+- min-width
+- max-height
+- max-width
+
+```css
+.item2 {
+  height: 30vh;
+  width: 40vw;
+  font-size: 24pt;
+  min-height: 150px;
+  min-width: 300px;
+  max-height: 250px;
+  max-width: 500px;
+}
+```
 
 ## Flexbox
 
