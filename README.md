@@ -698,11 +698,114 @@ O exemplo acima demonstra algumas propriedades de texto, que quando combinadas d
 
 Isso fará com que a fonte seja carregada e possa ser utilizada na aplicação. Para utilizar alguma outra fonte do Google, basta trocar o parâmetro family na url acima. A seção de materias para estudo, ao final do arquivo, contém um link para uma lista das fontes disponíveis.
 
+### Box Model (Modelo de caixa)
+
+O box model é essencialmente uma caixa que envolve todos elementos HTML e se consiste, de dentro para fora, em:
+conteúdo, padding, border e margin, além das dimensões propriamente ditas de largura e altura (width e height). Esses elementos são utilizados para definir os espaçamentos em torno e dentro dos elementos.
+
+- width: define a largura de um elemento
+- height: define a altura de um elento
+- padding: define o espaçamento interno de um elemento
+- margin: define o espaçamento externo de um elemento
+- border-width: define a grossura da borda de um elemento
+- border-color: define a cor da borda
+- border-style: define o estilo da borda
+- border: atalho para border-width border-style e border-color
+- border-radius: define o arredondamento dos cantos de um elemento, mesmo se ele não tiver borda
+- box-sizing: define se o as bordas e paddings serão considerados ou não para o tamanho do elemento
+
+```html
+<section id="container">
+  <div class="item1"><h1>1</h1></div>
+  <div class="item2"><h1>2</h1></div>
+  <div class="item3"><h1>3</h1></div>
+  <div class="item4"><h1>4</h1></div>
+</section>
+```
+
+```css
+body {
+  margin: 0px;
+  background: #def;
+}
+
+div {
+  background: #3399ff;
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+}
+
+h1 {
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  text-align: center;
+  line-height: 100px;
+}
+
+#container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.item1 {
+  border: 5px solid #ff9933;
+  border-radius: 25px;
+}
+
+.item2 {
+  margin: 15px;
+}
+
+.item3 {
+  padding: 20px;
+}
+
+.item4 {
+  border-width: 5px;
+  border-style: solid;
+  border-color: #ff9933;
+  border-radius: 25px;
+  margin: 15px;
+  padding: 20px;
+}
+```
+
+O exemplo mostra o comportamento de cada uma das propriedades apresentadas. Note que os dois primeiros itens aparecem totalmente brancos, mesmo sendo definidos inicialmente como azul, isso ocorre pois não há nenhum padding neles, fazendo com que o conteúdo interno (a h1) ocupe todo o espaço disponível. No navegador, abra o Menu do Desenvolvedor (tecla F12) e selecione a aba elementos. Expanda os elementos e passe o mouse por cima de cada um, observando o espaçamento definido por cada propriedade e a alteração causada no tamanho. Caso seja necessário manter o tamanho dos elementos mesmo com borda e padding aplicados, é possível adicionar a propriedade `box-sizing: border-box;`:
+
+```css
+div {
+  background: #3399ff;
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+```
+
+Use o Menu do Desenvolvedor novamente para visualizar a alteração nos tamanhos. Perceba como a margem não é inclusa no tamanho, mesmo após essa opção ser adicionada.
+
+**OBS: Ao passar o mouse sobre a tag section, aparecerá algumas bordas roxas, elas são referentes ao flexbox, conceito muito importante que será abordado ao final das estilizações.**
+
+Nesse caso foi fácil aplicar a propriedade para todos elementos, pois eram todos divs, mas nem sempre isso acontece, sendo necessário aplicar em cada elemento desejado. Porém é possível "definir essa opção como padrão" (na verdade aplicá-la em todos elementos) utilizando o sentido bloco no CSS:
+
+```css
+* {
+  box-sizing: border-box;
+}
+```
+
+O seletor \* seleciona todos os elementos do HTML e aplica as propriedades definidas. De preferência coloque-o ao topo no arquivo ou logo após o body, pois dessa maneira, caso deseje que algum elemento não possua essa propriedade é possível revertê-la adicionando `box-sizing: content-box;` onde desejado.
+
 ### Opacidade e sombras
 
-Ao longo dos exemplos foi falado um pouco sobre opacidade e sombras nas cores e texto, respectivamente. No entanto, também é possível aplicá-las em outros elementos através das propriedades:
+Ao longo dos exemplos foi falado um pouco sobre opacidade nas cores e sombras no texto. No entanto, também é possível aplicá-las em outros elementos através das propriedades:
 
-- opactity - 0 a 1: define a opacidade de uma imagem, cor, texto, etc.
+- opactity - 0 a 100%: define a opacidade de uma imagem, cor, texto, etc.
 - text-shadow: aplica uma sombra no texto
 - box-shadow: aplica uma sombra em outros elementos
 
@@ -778,6 +881,28 @@ h1 {
   text-shadow: 2px 2px black;
 }
 ```
+
+### Unidades de medida e Responsividade
+
+Nos exemplos, foi utilizado apenas a unidade "px" - e em alguns casos % e vh - para definir tamanhos, porém existem outras formas de fazê-lo no CSS, com medidas absolutas e relativas.
+
+- Medidas absolutas:
+
+  São medidas que sempre valerão o mesmo tamanho, ou seja, não dependem de uma referência. Ex:
+
+  - px ("pixels"): A unidade de tamanho mais comumente utilizada no CSS
+  - pt (points), pc (paica): Unidades de medida de texto
+  - in (inches), cm (centímetros), mm (milímetros) : Unidades de medida do "mundo real"
+
+- Medidas relativas:
+
+  São medidas que mudarão de tamanho conforme uma referência adotada. Ex:
+
+  - % (porcento): porcentagem do tamanho do elemento pai
+  - em (font-size), rem (root em): em utiliza a font-size do elemento pai como unidade básica, já o rem utiliza a font-size do root como unidade básica
+  - vw (viewport width), vh (viewport height): 1/100 da largura e altura, respectivamente, do dispositivo
+
+  A partir dessas medidas relativas, é possível inciar o conceito de responsividade: a capacidade de uma página se adaptar a diferentes dispositivos e tamanhos de tela. Ao utilizá-las, uma medida sempre manterá a mesma proporção em diferentes tamanhos de dispositivos, fazendo com o que o site se torne de certa forma mais acessível. Isso é, se os dispositivos não tiverem uma diferença muito grande de tamanho, para esse caso é necessário utilizar media queries, que não convêm serem explicadas por agora.
 
 ## Flexbox
 
@@ -1082,13 +1207,13 @@ Existem outras propriedades dos itens como order, flex-basis e flex, no entanto 
 
 Isso encerra o conteúdo mais comumente utilizado em CSS. Vale repetir o que foi dito na seção de HTML: ver os exemplos apresentados na prática e interagir com eles, assim como conferir os conteúdos que não foram tão bem compreendidos, no material disponível ao final do arquivo. E caso tenha dúvidas, sinta-se livre para perguntar!
 
-Joguem o jogo do sapinho também :) é bem divertido e ajuda muito a decorar as propriedades do flexbox.
+Joguem o [jogo do sapinho](https://flexboxfroggy.com/) também, é bem divertido e ajuda muito a decorar as propriedades do flexbox.
 
 ## Tailwind
 
 ### Introdução
 
-Atualmente no projeto, utilizamos uma biblioteca feita a partir do CSS para o desenvolvimento web, o Tailwind. Ele tem como principal objetivo tornar os elementos mais responsivos de uma maneira mais simples, além de simplificar mesmo a estilização. Tendo isso em vista, deixa-se claro que esse conteúdo é mais opcional no momento, para ter uma noção básica da existência e com o tempo, conforme conveniente, serão introduzidos mais conceitos.
+Atualmente no projeto, utilizamos uma biblioteca feita a partir do CSS para o desenvolvimento web, o Tailwind. Ele tem como principal objetivo simplificar o processo de estilização e tornar os elementos naturalmente mais responsivos - utilizando rem como unidade básica no lugar de px, por exemplo. Tendo isso em vista, deixa-se claro que esse conteúdo é mais opcional no momento, para ter uma noção básica da existência e com o tempo, conforme conveniente, serão introduzidos mais conceitos.
 
 O Tailwind em si não adiciona nenhuma propriedade de estilização própria, ele apenas compila as existentes do CSS em classes de fácil reutilização. Entretanto, ele adiciona algumas palhetas de cores, que também facilitam o processo, principalmente inicial, de design e desenvolvimento.
 
@@ -1124,9 +1249,10 @@ O Tailwind procura sempre utilizar nomes intuitivos para as classes e passando o
 - [Curso da Alura](https://cursos.alura.com.br/formacao-html-css-v534235)
 - [Curso da Udemy](https://www.udemy.com/course/curso-web/learn/lecture/9646336#overview)
 - [W3 Schools CSS](https://www.w3schools.com/css/css_intro.asp)
-- [Joguinho do sapo](https://flexboxfroggy.com/)
-- [CSS animado](https://dev.to/jon_snow789/an-animated-lesson-on-css-will-teach-you-how-to-use-it-2dj4)
 - [Nomes de cores](https://www.w3.org/wiki/CSS/Properties/color/keywords)
 - [Google Fonts](https://fonts.google.com/)
+- [Joguinho do sapo](https://flexboxfroggy.com/)
+- [CSS animado](https://dev.to/jon_snow789/an-animated-lesson-on-css-will-teach-you-how-to-use-it-2dj4)
+- [Unidades do CSS](https://www.alura.com.br/artigos/guia-de-unidades-no-css)
 - [Tailwind em 13:37](https://www.youtube.com/watch?v=dHwY5lRfkoQ)
 - [Tailwind Play](https://play.tailwindcss.com/)
