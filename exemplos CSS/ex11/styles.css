@@ -1,0 +1,40 @@
+body {
+  margin: 0px;
+  background: #def;
+}
+
+div {
+  height: 100px;
+  /* width: 100px; */
+  border-radius: 25px;
+  background: #3399ff;
+}
+
+/* #container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+} */
+
+/* #container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+} */
+
+/* #container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+} */
+
+#container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}

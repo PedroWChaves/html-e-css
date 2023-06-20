@@ -698,6 +698,426 @@ O exemplo acima demonstra algumas propriedades de texto, que quando combinadas d
 
 Isso fará com que a fonte seja carregada e possa ser utilizada na aplicação. Para utilizar alguma outra fonte do Google, basta trocar o parâmetro family na url acima. A seção de materias para estudo, ao final do arquivo, contém um link para uma lista das fontes disponíveis.
 
+### Opacidade e sombras
+
+Ao longo dos exemplos foi falado um pouco sobre opacidade e sombras nas cores e texto, respectivamente. No entanto, também é possível aplicá-las em outros elementos através das propriedades:
+
+- opactity - 0 a 1: define a opacidade de uma imagem, cor, texto, etc.
+- text-shadow: aplica uma sombra no texto
+- box-shadow: aplica uma sombra em outros elementos
+
+```html
+<body>
+  <section class="card1">
+    <img src="../../images/logo.png" alt="Logo Ex Machina" height="150" />
+    <h1>Tecnologia Assistiva</h1>
+  </section>
+
+  <section class="card2">
+    <img src="../../images/logo.png" alt="Logo Ex Machina" height="150" />
+    <h1>Tecnologia Assistiva</h1>
+  </section>
+
+  <section class="card3">
+    <img src="../../images/logo.png" alt="Logo Ex Machina" height="150" />
+    <h1>Tecnologia Assistiva</h1>
+  </section>
+</body>
+```
+
+```css
+body {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  background: #eef;
+}
+
+img {
+  height: 250px;
+  width: 250px;
+}
+
+.card1,
+.card2,
+.card3 {
+  background: #f0f8ff;
+  border-radius: 25px;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card1 {
+  box-shadow: 0px 0px 10px gray;
+}
+
+.card2 {
+  box-shadow: 10px 10px lightblue;
+}
+
+.card3 {
+  opacity: 50%;
+  box-shadow: 10px 10px lightblue;
+}
+
+h1 {
+  background-color: white;
+  width: 100%;
+  font-size: 36px;
+  color: #3399ff;
+  font-family: helvetica;
+  text-align: center;
+  border-radius: 0px 0px 25px 25px;
+  margin: 0px;
+  padding: 40px 0px;
+  text-shadow: 2px 2px black;
+}
+```
+
+## Flexbox
+
+O CSS também ofere alguns modelos de layouts. O mais utilizado entre eles é o flexbox, que foi utilizado nos exemplos anteriores para que eles pudessem ser vistos de forma mais clara. Ele organiza e alinha elementos em uma única dimensão (linha ou coluna), através de um eixo principal e um eixo secundário. Para utilizar o flexbox, é necessário um elemento pai (flex container) com a propriedade `display: flex` e elementos filhos (flex items) que serão organizados, ajustando-se automaticamente ao espaço disponível.
+
+Como à primeira vista o flexbox é um conceito complexo de se entender, ele será dividido em seções de acordo com as suas principais propriedades
+
+### Eixo principal e secundário
+
+O layout do flexbox é determinado pela existência de dois eixos, como um plano cartesiano. No entanto, no lugar de x e y, existem o eixo principal e o secundário, que são na prática o que determina a disposição dos elementos filhos. Na web, o eixo das linhas (no plano cartesiano o eixo x) é padronizado como o principal, devido ao formato nas telas de computador, já no desenvolvimento mobile, o eixo das colunas é padronizado como o principal.
+
+- flex-direction - row, column, row-reverse, column-reverse: define o eixo principal dos itens dentro do contêiner.
+- justify-content - flex-start, center, flex-end, space-around, space-evenly, space-between: controla a disposição dos itens no eixo principal.
+- align-items - flex-start, center, flex-end, stretch: controla o alinhamento dos itens no eixo secundário.
+
+Essas são as três propriedades mais importantes para se trabalhar com o flexbox, sua utilização será vista através de exemplos:
+
+```html
+<section id="container">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</section>
+```
+
+```css
+body {
+  margin: 0px;
+  background: #def;
+}
+
+div {
+  height: 100px;
+  width: 100px;
+  border-radius: 25px;
+  background: #3399ff;
+}
+
+#container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+}
+```
+
+Nesse primeiro exemplo, o eixo principal é o eixo das linhas e existe um espaçamento ao redor de cada item dele. Note que o espaço nas laterais é metade do espaço entre um item e outro. O eixo secundário não foi alterado e, portanto, utiliza o alinhamento padrão flex-start, ou seja, no ínicio do contêiner.
+
+```css
+#container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+```
+
+Para o segundo exemplo podemos alterar somente a estilização do elemento pai. Agora, o espaçamento entre os elementos filhos está padronizado e estão alinhados ao centro do eixo secundário. OBS: para essa disposição funcionar na maneira intencionada, é necessário que o contêiner ocupe todo o espaço vertical da tela, veja o que acontece ao remover essa propriedade.
+
+```css
+#container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+```
+
+Para esse exemplo, o eixo principal foi definido como o eixo das colunas e os itens estão dispostos ao seu centro. O alinhamento dos itens no eixo secundário está ao final.
+
+```css
+div {
+  height: 100px;
+  /* width: 100px; */
+  border-radius: 25px;
+  background: #3399ff;
+}
+
+#container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+```
+
+Também é possível remover os espaços laterais e fazer com que os itens se estiquem no eixo secundário (mas para isso é necessário remover o tamanho fixo de 100px da div)
+
+Para um melhor entendimento experimente testar cada combinação dessas propriedades e analisar o resultado.
+
+### Quebra de linha
+
+Mas o que acontece caso o tamanho dos itens seja maior que o disponível?
+
+- flex-wrap - wrap, nowrap, wrap-reverse: determina se os itens devem quebrar ou não para a próxima linha (ou coluna) quando o espaço no contêiner é insuficiente.
+- align-content - flex-start, center, flex-end, space-around, space-evenly, space-between: Controla a disposição das linhas quando há quebra de linha ou de coluna.
+
+```html
+<section id="container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+  <div>7</div>
+  <div>8</div>
+  <div>9</div>
+  <div>10</div>
+  <div>11</div>
+  <div>12</div>
+  <div>13</div>
+  <div>14</div>
+  <div>15</div>
+</section>
+```
+
+```css
+body {
+  margin: 0px;
+  background: #def;
+}
+
+div {
+  height: 100px;
+  width: 100px;
+  border-radius: 25px;
+  background: #3399ff;
+  text-align: center;
+  line-height: 100px;
+  font-size: 36px;
+  margin: 5px;
+}
+
+#container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+```
+
+Com esse exemplo é possível ver que os itens ficam espremidos para caber na mesma linha. Veja o que acontece ao adicionar a propriedade `flex-wrap: wrap;` ao container. Veja também o comportamento com a opção "wrap-reverse". Nesse caso, é possível utilizar a propriedade `align-content` para determinar a disposição das linhas de maneira semelhante a `jusify-content`:
+
+```css
+#container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-between;
+}
+```
+
+### Propriedades dos filhos
+
+- align-self - flex-start, center, flex-end, stretch: permite alterar o alinhamento individual de um item no eixo secundário do contêiner.
+- flex-grow e flex-shrink: controlam como os itens crescem ou encolhem em relação ao espaço disponível.
+
+```html
+<section id="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</section>
+```
+
+```css
+body {
+  margin: 0px;
+  background: #def;
+}
+
+div {
+  height: 100px;
+  width: 100px;
+  border-radius: 25px;
+  background: #3399ff;
+  text-align: center;
+  line-height: 100px;
+  font-size: 36px;
+  margin: 5px;
+}
+
+#container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.item1 {
+  align-self: flex-start;
+}
+
+.item5 {
+  align-self: flex-end;
+}
+
+.item3 {
+  align-self: stretch;
+  height: auto;
+}
+```
+
+A propriedade `align-self` no geral é bem intuitiva.
+
+```css
+.item2 {
+  flex-grow: 1;
+}
+```
+
+Ao adicionar a estilização acima, o item2 passa a ocupar todo o espaço disponível no eixo principal, pois é o único elemento com `flex-grow` maior que 0 (padrão).
+
+```css
+div {
+  height: 100px;
+  width: 100px;
+  border-radius: 25px;
+  background: #3399ff;
+  text-align: center;
+  line-height: 100px;
+  font-size: 36px;
+  margin: 5px;
+  flex-grow: 1;
+}
+
+.item2 {
+  flex-grow: 2;
+}
+```
+
+Dessa maneira, o item 2 crescerá o dobro do espaço dos demais, pois agora cada um possui `flex-grow: 1;`. Obs: remova a estilização dos outros itens para uma melhor visualização.
+
+Por outro lado, existe a opção `flex-shrink`, que determina justamente quanto um item irá encolher quando faltar espaço.
+
+```html
+<section id="container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+  <div>7</div>
+  <div>8</div>
+  <div>9</div>
+  <div>10</div>
+  <div>11</div>
+  <div>12</div>
+  <div>13</div>
+  <div>14</div>
+  <div>15</div>
+</section>
+```
+
+```css
+body {
+  margin: 0px;
+  background: #def;
+}
+
+div {
+  height: 100px;
+  width: 100px;
+  border-radius: 25px;
+  background: #3399ff;
+  text-align: center;
+  line-height: 100px;
+  font-size: 36px;
+  margin: 5px;
+  flex-grow: 1;
+}
+
+#container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.item1 {
+  flex-shrink: 0;
+}
+
+.item2 {
+  flex-shrink: 0.5;
+}
+```
+
+Note como o primeiro elemento mantém seu tamanho original o segundo diminui somente a metade e os demais são encaixados no espaço restante.
+
+Existem outras propriedades dos itens como order, flex-basis e flex, no entanto não são tão costumeiras.
+
+## Conclusão
+
+Isso encerra o conteúdo mais comumente utilizado em CSS. Vale repetir o que foi dito na seção de HTML: ver os exemplos apresentados na prática e interagir com eles, assim como conferir os conteúdos que não foram tão bem compreendidos, no material disponível ao final do arquivo. E caso tenha dúvidas, sinta-se livre para perguntar!
+
+Joguem o jogo do sapinho também :) é bem divertido e ajuda muito a decorar as propriedades do flexbox.
+
+## Tailwind
+
+### Introdução
+
+Atualmente no projeto, utilizamos uma biblioteca feita a partir do CSS para o desenvolvimento web, o Tailwind. Ele tem como principal objetivo tornar os elementos mais responsivos de uma maneira mais simples, além de simplificar mesmo a estilização. Tendo isso em vista, deixa-se claro que esse conteúdo é mais opcional no momento, para ter uma noção básica da existência e com o tempo, conforme conveniente, serão introduzidos mais conceitos.
+
+O Tailwind em si não adiciona nenhuma propriedade de estilização própria, ele apenas compila as existentes do CSS em classes de fácil reutilização. Entretanto, ele adiciona algumas palhetas de cores, que também facilitam o processo, principalmente inicial, de design e desenvolvimento.
+
+Uma última nota antes de partir para o conteúdo em si é que o Tailwind compila todo "código" desenvolvido de volta para CSS, fazendo que não haja acréscimos significativos no seu peso.
+
+### Exemplo
+
+Como a configuração é complicada e desnecessária no momento, o site [Tailwind Play](https://play.tailwindcss.com/) pode ser usado para visualizar e testar.
+
+Diferentemente do CSS, a proposta do Tailwind é unir novamente a estilização com a definição do elemento HTML, por isso, usualmente, vem junto ao HTML.
+
+```html
+<div class="flex flex-col items-center justify-evenly min-h-screen">
+  <div
+    class="w-1/3 h-32 bg-green-400 border-0 rounded-full shadow-lg shadow-gray-700"
+  ></div>
+  <div
+    class="w-1/3 h-32 bg-yellow-300 border-0 rounded-full shadow-lg shadow-gray-700"
+  ></div>
+  <div
+    class="w-1/3 h-32 bg-red-500 border-0 rounded-full shadow-lg shadow-gray-700"
+  ></div>
+</div>
+```
+
+O Tailwind procura sempre utilizar nomes intuitivos para as classes e passando o mouse por cima delas é possível ver qual estilização do CSS está sendo de fato aplicada.
+
+**OBS: vale sempre a pena estudar o CSS em si primeiro, para depois ver como o Tailwind utiliza a propriedade desejada.**
+
 # Materiais para estudo
 
 - **[Playlist HTML e CSS](https://www.youtube.com/playlist?list=PLPjSrtKJfMyfSH55NTT5RdHTeQqBr4wIM)**
@@ -708,3 +1128,5 @@ Isso fará com que a fonte seja carregada e possa ser utilizada na aplicação. 
 - [CSS animado](https://dev.to/jon_snow789/an-animated-lesson-on-css-will-teach-you-how-to-use-it-2dj4)
 - [Nomes de cores](https://www.w3.org/wiki/CSS/Properties/color/keywords)
 - [Google Fonts](https://fonts.google.com/)
+- [Tailwind em 13:37](https://www.youtube.com/watch?v=dHwY5lRfkoQ)
+- [Tailwind Play](https://play.tailwindcss.com/)
