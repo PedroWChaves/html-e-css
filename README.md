@@ -398,7 +398,7 @@ div {
 
 No exemplo dado, é possível perceber que o id foi aplicado somente em um elemento, equanto que a class foi aplicada em um e em dois elementos, não havendo essa restrição de quantidade. Além de que, mesmo possuindo seletores diferentes, todas divs possuem a estilização do seletor de elemento.
 
-### Aninhamento de seletores
+### Seletores aninhados
 
 Uma outra maneira de se especificar qual elemento deseja ser estilizado é através do aninhamento de seletores.
 
