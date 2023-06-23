@@ -146,6 +146,16 @@ São utilizados para definir títulos e subtitulos em uma página. Eles vão de 
 <img src="images/logo.png" alt="Logo Ex Machina" height="200" />
 ```
 
+Também é possível fazer com que uma imagem atue como um link, ou seja, ao clicá-la, ser redirecionado para outra página. Isso pode ser feito definindo a imagem como filho da tag âncora:
+
+```html
+<a href="https://linktr.ee/ExMachina">
+  <img src="images/logo.png" alt="Logo Ex Machina" height="200" />
+</a>
+```
+
+Na realidade, qualquer elemento filho da tag \<a\> passará a se comportar como um link, porém muitos casos não fazem sentido, como utilizar uma tag de input, por exemplo.
+
 ### Formulários
 
 - **\<form\>**: Define que o conteúdo contido se trata de um formulário.
