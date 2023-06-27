@@ -313,7 +313,7 @@ Imagine que se deseja criar uma lista de cards para apresentar os diferentes pro
 </html>
 ```
 
-No entanto, deixar HTML e CSS no mesmo arquivo não é uma boa prática, então podemos criar um arquivo `styles.css` com os estilos desenvolvidos no mesmo diretório substituir a tag **\<style\>** por:
+No entanto, deixar HTML e CSS no mesmo arquivo não é uma boa prática, então o ideal é criar um arquivo `styles.css` com os estilos desenvolvidos no mesmo diretório substituir a tag **\<style\>** por:
 
 ```html
 <link rel="stylesheet" type="text/css" href="styles.css" />
@@ -346,7 +346,7 @@ h3 {
 }
 ```
 
-Ao colocar dois elementos separados por vírgula no primeiro bloco, o estilo é aplicado em todos. Em seguida o parâmetro "font-size" é sobreescrito em h2 - lembrando que a prioridade se deve pois 24px aparece abaixo no arquivo, caso aparecesse acima, 36px teria prioridade. Por fim, um terceiro estilo é aplicado para h3. Podemos analisar as estilizações com o seguinte trecho em HTML:
+Ao colocar dois elementos separados por vírgula no primeiro bloco, o estilo é aplicado em todos. Em seguida o parâmetro "font-size" é sobreescrito em h2 - lembrando que a prioridade se deve pois 24px aparece abaixo no arquivo, caso aparecesse acima, 36px teria prioridade. Por fim, um terceiro estilo é aplicado para h3. As estilizações podem ser analisadas com o seguinte trecho em HTML:
 
 ```html
 <h1>Texto em h1</h1>
@@ -785,7 +785,11 @@ h1 {
 }
 ```
 
-O exemplo mostra o comportamento de cada uma das propriedades apresentadas. Note que os dois primeiros itens aparecem totalmente brancos, mesmo sendo definidos inicialmente como azul, isso ocorre pois não há nenhum padding neles, fazendo com que o conteúdo interno (a h1) ocupe todo o espaço disponível. No navegador, abra o Menu do Desenvolvedor (tecla F12) e selecione a aba elementos. Expanda os elementos e passe o mouse por cima de cada um, observando o espaçamento definido por cada propriedade e a alteração causada no tamanho. Caso seja necessário manter o tamanho dos elementos mesmo com borda e padding aplicados, é possível adicionar a propriedade `box-sizing: border-box;`:
+O exemplo mostra o comportamento de cada uma das propriedades apresentadas. Note que os dois primeiros itens aparecem totalmente brancos, mesmo sendo definidos inicialmente como azul, isso ocorre pois não há nenhum padding neles, fazendo com que o conteúdo interno (a h1) ocupe todo o espaço disponível. No navegador, abra o Menu do Desenvolvedor (tecla F12) e selecione a aba elementos. Expanda os elementos e passe o mouse por cima de cada um, observando o espaçamento definido por cada propriedade e a alteração causada no tamanho.
+
+**OBS: Ao passar o mouse sobre a tag section, aparecerá algumas bordas roxas, elas são referentes ao flexbox, conceito muito importante que será abordado ao final das estilizações.**
+
+Caso seja necessário manter o tamanho dos elementos mesmo com borda e padding aplicados, é possível adicionar a propriedade `box-sizing: border-box;`:
 
 ```css
 div {
@@ -799,9 +803,7 @@ div {
 
 Use o Menu do Desenvolvedor novamente para visualizar a alteração nos tamanhos. Perceba como a margem não é inclusa no tamanho, mesmo após essa opção ser adicionada.
 
-**OBS: Ao passar o mouse sobre a tag section, aparecerá algumas bordas roxas, elas são referentes ao flexbox, conceito muito importante que será abordado ao final das estilizações.**
-
-Nesse caso foi fácil aplicar a propriedade para todos elementos, pois eram todos divs, mas nem sempre isso acontece, sendo necessário aplicar em cada elemento desejado. Porém é possível "definir essa opção como padrão" (na verdade aplicá-la em todos elementos) utilizando o sentido bloco no CSS:
+Nesse caso foi fácil aplicar a propriedade para todos elementos, pois eram todos div, mas nem sempre isso acontece, sendo necessário aplicar em cada elemento desejado. Porém é possível "definir essa opção como padrão" (na verdade aplicá-la em todos elementos) utilizando o seguinte bloco no CSS:
 
 ```css
 * {
@@ -902,9 +904,11 @@ Nos exemplos, foi utilizado apenas a unidade "px" - e em alguns casos % e vh - p
 
   - px ("pixels"): A unidade de tamanho mais comumente utilizada no CSS
   - pt (points), pc (paica): Unidades de medida de texto
-  - in (inches), cm (centímetros), mm (milímetros) : Unidades de medida do "mundo real"
+  - in (inches), cm (centímetros), mm (milímetros): Unidades de medida do "mundo real"
 
   OBS: 1 in = 2,54cm = 25,4mm = 72pt = 6pc
+
+  OBS2: "pixels" está entre aspas, pois são feitos alguns ajustes para que o tamanho seja mantido em monitores de diferentes densidades de pixels propriamente ditos e para adaptar à proximidade que o usuário verá a tela se estiver no celular ou no computador, por exemplo.
 
 - Medidas relativas:
 
@@ -1058,7 +1062,7 @@ Nesse primeiro exemplo, o eixo principal é o eixo das linhas e existe um espaç
 }
 ```
 
-Para o segundo exemplo podemos alterar somente a estilização do elemento pai. Agora, o espaçamento entre os elementos filhos está padronizado e estão alinhados ao centro do eixo secundário. OBS: para essa disposição funcionar na maneira intencionada, é necessário que o contêiner ocupe todo o espaço vertical da tela, veja o que acontece ao remover essa propriedade.
+Para o segundo exemplo, é necessário alterar somente a estilização do elemento pai. Agora, o espaçamento entre os elementos filhos está padronizado e estão alinhados ao centro do eixo secundário. OBS: para essa disposição funcionar na maneira intencionada, é necessário que o contêiner ocupe todo o espaço vertical da tela, veja o que acontece ao remover essa propriedade.
 
 ```css
 #container {
